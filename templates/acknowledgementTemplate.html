@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Appointment Acknowledgement</title>
+  <style>
+    
+      body {
+        font-family: Arial, sans-serif;
+       padding: 210px 40px 20px 40px;
+      }
+
+        .header {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+      }
+
+      .logo {
+        position: absolute;
+        left: 15px;
+        height: 110px;
+      }
+
+      .title {
+        position: absolute;
+        top: 50px;  /* aligns with logo center */
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title h2 {
+        font-size: 22px;
+        margin: 0;
+        text-decoration: underline;
+      }
+      
+    .watermark { 
+      position: fixed;
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%); 
+      opacity: 0.2; 
+      width: 600px; 
+      z-index: 0; 
+    }
+
+.clinic {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 1.4;
+  font-size: 13px;  /* 👈 smaller for all lines */
+}
+
+.clinic-name {
+  font-size: 18px;  /* 👈 bigger for "Clinic SymptoNexus" */
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 25px;   /* 👈 SAME value = equal gap */
+}
+
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      background: #f2f2f2;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .column {
+      width: 48%;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .footer-text {
+      margin-top: 30px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .disclaimer {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+
+
+
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+      width: 500px;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img src="{{watermark}}" class="watermark" />
+
+<div class="header">
+  <img src="{{logo}}" class="logo" />
+  <div class="title">
+    <h2>ACKNOWLEDGEMENT</h2>
+  </div>
+</div>
+
+<div class="clinic">
+  <div class="clinic-name">Clinic SymptoNexus</div>
+  <div>Krishnanagar, Nadia</div>
+  <div>West Bengal - 741102</div>
+  <div>Contact: +91 98765 43210</div>
+  <div>Email: symptonexus333@gmail.com</div>
+</div>
+
+  <!-- Appointment Details -->
+  <div class="section">
+    <div class="section-title">Appointment Details</div>
+
+    <div class="grid">
+      <div class="column">
+        <div><span class="label">Appointment ID :</span> {{appointment_id}}</div>
+        <div><span class="label">Appointment Date :</span> {{appointment_date}}</div>
+        <div><span class="label">Appointment Time :</span> {{appointment_time}}</div>
+        <div><span class="label">Booking Status :</span> {{booking_status}}</div>
+      </div>
+
+      <div class="column">
+
+        <div><span class="label">Consultation :</span>Follow Up</div>
+        <div><span class="label">Consultation Type :</span>In Person</div>
+        <div><span class="label">Consultation Reason :</span>Symptoms</div>
+
+      </div>
+    </div>
+  </div>
+
+    <!-- Doctor Details -->
+  <div class="section">
+    <div class="section-title">Doctor Details</div>
+
+    <div class="grid">
+      <div class="column">
+        <div><span class="label">Doctor Name :</span> {{doctor_name}}</div>
+        <div><span class="label">Speciality :</span> {{specialization}}</div>
+        <div><span class="label">Phone Number :</span> {{doctor_phone}}</div>
+        <div><span class="label">License Number :</span> {{license_number}}</div>
+
+      </div>
+
+      <div class="column">
+        <div><span class="label">Slot Time :</span> {{slot_time}}</div>
+        <div><span class="label">Experience :</span> {{experience}}</div>
+        <div><span class="label">Fees :</span> {{fees}}</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Patient Details -->
+  <div class="section">
+    <div class="section-title">Patient Details</div>
+
+    <div class="grid">
+      <div class="column">
+        <div><span class="label">Patient Name :</span> {{patient_name}}</div>
+        <div><span class="label">Mobile Number :</span> {{patient_phone}}</div>
+        <div><span class="label">Gender :</span> {{patient_gender}}</div>
+      </div>
+
+      <div class="column">
+    
+        <div><span class="label">Age :</span> {{patient_age}}</div>
+        <div><span class="label">DOB :</span> {{patient_dob}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="footer-text">
+    At the hospital, please contact the Helpdesk for assistance to meet your doctor. 
+    You are requested to be present at least <b>15 minutes before</b> your appointment 
+    to complete the necessary paperwork. Please bring your acknowledgement slip as hardcopy or softcopy.
+  </div>
+
+  <div class="footer-text">
+    Thank you for using SymptoNexus. Wishing you good health.
+  </div>
+
+  <div class="footer-text">
+    Administrator
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <b>Disclaimer :</b> The clinic will make all efforts to honor the appointment. 
+    However, in the event of unforeseen circumstances, the appointment may be delayed 
+    or rescheduled.
+  </div>
+
+</body>
+</html>
