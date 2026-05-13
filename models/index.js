@@ -1,4 +1,5 @@
 const sequelize = require("../config/database");
+const Feedback = require("./Feedback");
 
 /* ================= IMPORT MODELS ================= */
 
@@ -363,6 +364,28 @@ ControlRoleMapping.belongsTo(Role, {
   foreignKey: "role_id"
 });
 
+/* ================= FEEDBACK RELATIONS ================= */
+
+User.hasMany(Feedback, {
+  foreignKey: "user_id",
+  as: "feedbacks"
+});
+
+Feedback.belongsTo(User, {
+  foreignKey: "user_id",
+  as: "user"
+});
+
+Role.hasMany(Feedback, {
+  foreignKey: "role_id",
+  as: "feedbacks"
+});
+
+Feedback.belongsTo(Role, {
+  foreignKey: "role_id",
+  as: "role"
+});
+
 
 /* =====================================================
    EXPORT ALL MODELS
@@ -404,5 +427,7 @@ module.exports = {
 
   Appointment,
 
-  DoctorAvailability
+  DoctorAvailability,
+
+  Feedback
 };

@@ -4,6 +4,8 @@ const cors = require("cors");
 const app = express();
 const responseMiddleware = require("./middlewares/response.middleware");
 const authMiddleware = require("./middlewares/auth.middleware");
+const feedbackRoutes = require("./routes/feedback.routes");
+
 
 const { sequelize, Patient, PatientDetails } = require("./models");
 
@@ -26,6 +28,7 @@ app.use(express.json());
 app.use(responseMiddleware); 
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/feedback", feedbackRoutes);
 
 const registerRoutes = require('./routes/index.routes');
 registerRoutes(app);
