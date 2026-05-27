@@ -27,6 +27,7 @@ app.use(cors({
 app.use(express.json());
 app.use(responseMiddleware); 
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/ai", require("./routes/ai.routes"));
 
 app.use("/api/feedback", feedbackRoutes);
 
